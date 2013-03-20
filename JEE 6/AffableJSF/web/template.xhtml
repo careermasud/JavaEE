@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="affablebean.css"/>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+        <div id="main">
+            <div id="header">
+                <div id="widgetBar">
+                    <div class="headerWidget">
+                    </div>
+                    <div class="headerWidget" id="viewCart">
+                        <h:graphicImage id="cart" library="img" name="cart.gif" alt="shopping cart icon"/>
+                    </div>
+                </div>
+                <h:graphicImage library="img" name="logo.png" id="logo" alt="Affable Bean logo"/>
+            </div>                
+            <div id="indexLeftColumn">
+                <div id="welcomeText">
+                    <p style="font-size: larger"></p>
+                    <p><h:link outcome="/login">Login</h:link></p>
+                    <p><h:link outcome="/admin/Create" value="Sign Up"/></p>
+                </div>
+            </div>
+
+            <div id="indexRightColumn">
+                <ui:insert name="body">Content</ui:insert>
+            </div>
+            <div id="footer">
+                <br />
+                <hr id="footerDivider"/>
+                <p id="footerText" class="reallySmallText">
+                    <a href="#">Piracy</a>
+                    &nbsp;&nbsp;::&nbsp;&nbsp;
+                    <a href="#">Contact</a>
+                    &nbsp;&nbsp;&copy;&nbsp;&nbsp;
+                    2010 the affable bean</p>
+            </div>
+        </div>
+    </h:body>
+
+</html>

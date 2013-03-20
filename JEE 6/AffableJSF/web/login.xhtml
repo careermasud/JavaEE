@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="body">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="#{bundle.CreateAdminLabel_userName}" for="userName" />
+                        <h:inputText id="userName" value="#{loginController.userName}" title="#{bundle.CreateAdminTitle_userName}" />
+                        <h:outputLabel value="#{bundle.CreateAdminLabel_password}" for="password" />
+                        <h:inputSecret id="password" value="#{loginController.password}" title="#{bundle.CreateAdminTitle_password}" />
+                        
+                        <h:outputLabel/>
+                        <h:commandButton action="#{loginController.login()}" value="Login"/>                        
+                    </h:panelGrid>
+                </h:form>    
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

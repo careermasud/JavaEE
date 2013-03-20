@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOrderedProductTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOrderedProductLabel_quantity}" for="quantity" />
+                    <h:inputText id="quantity" value="#{orderedProductController.selected.quantity}" title="#{bundle.EditOrderedProductTitle_quantity}" required="true" requiredMessage="#{bundle.EditOrderedProductRequiredMessage_quantity}"/>
+                    <h:outputLabel value="#{bundle.EditOrderedProductLabel_product}" for="product" />
+                    <h:selectOneMenu id="product" value="#{orderedProductController.selected.product}" title="#{bundle.EditOrderedProductTitle_product}" required="true" requiredMessage="#{bundle.EditOrderedProductRequiredMessage_product}">
+                        <f:selectItems value="#{productController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOrderedProductLabel_customerOrder}" for="customerOrder" />
+                    <h:selectOneMenu id="customerOrder" value="#{orderedProductController.selected.customerOrder}" title="#{bundle.EditOrderedProductTitle_customerOrder}" required="true" requiredMessage="#{bundle.EditOrderedProductRequiredMessage_customerOrder}">
+                        <f:selectItems value="#{customerOrderController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{orderedProductController.update}" value="#{bundle.EditOrderedProductSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditOrderedProductViewLink}"/>
+                <br />
+                <h:commandLink action="#{orderedProductController.prepareList}" value="#{bundle.EditOrderedProductShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditOrderedProductIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
